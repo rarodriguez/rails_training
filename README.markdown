@@ -1,0 +1,1 @@
+This will be the section where I will add all the code samples that we build during Gap's Rails 3 training.
