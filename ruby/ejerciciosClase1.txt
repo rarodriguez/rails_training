@@ -1,0 +1,135 @@
+irb(main):024:0> ('cat'..'caz').to_a
+=> ["cat", "cau", "cav", "caw", "cax", "cay", "caz"]
+irb(main):025:0> ('cat'...'caz').to_a
+=> ["cat", "cau", "cav", "caw", "cax", "cay"]
+irb(main):026:0> ('caz'...'cat').to_a
+=> []
+irb(main):027:0> (35.5...40.0).to_a
+TypeError: can't iterate from Float
+        from (irb):27:in `each'
+        from (irb):27:in `to_a'
+        from (irb):27
+        from C:/Ruby192/bin/irb:12:in `<main>'
+irb(main):028:0> ('1'...'a').to_a
+=> ["1", "2", "3", "4", "5", "6", "7", "8", "9", ":", ";", "<", "=", ">", "?", "
+@", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "
+P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "[", "\\", "]", "^", "_",
+"`"]
+irb(main):029:0> a = []
+=> []
+irb(main):030:0> a << "hola"
+=> ["hola"]
+irb(main):031:0> a << "hola"
+=> ["hola", "hola"]
+irb(main):032:0> a << "hola"
+=> ["hola", "hola", "hola"]
+irb(main):033:0> a << "hola"
+=> ["hola", "hola", "hola", "hola"]
+irb(main):034:0> a << "hola"
+=> ["hola", "hola", "hola", "hola", "hola"]
+irb(main):035:0> a << "hola"
+=> ["hola", "hola", "hola", "hola", "hola", "hola"]
+irb(main):047:0> a = nil
+=> nil
+irb(main):048:0> a = Array.new
+=> []
+irb(main):049:0> a << "a"
+=> ["a"]
+irb(main):050:0> a << 1
+=> ["a", 1]
+irb(main):051:0> a << {:key=>'value'}
+=> ["a", 1, {:key=>"value"}]
+irb(main):052:0> a << ['a','b']
+=> ["a", 1, {:key=>"value"}, ["a", "b"]]
+irb(main):053:0> a << (1..10).to_a
+=> ["a", 1, {:key=>"value"}, ["a", "b"], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]]
+irb(main):054:0> a= a + (1..10).to_a
+=> ["a", 1, {:key=>"value"}, ["a", "b"], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 1, 2,
+3, 4, 5, 6, 7, 8, 9, 10]
+irb(main):055:0> a = a - '1'
+TypeError: can't convert String into Array
+        from (irb):55:in `-'
+        from (irb):55
+        from C:/Ruby192/bin/irb:12:in `<main>'
+irb(main):056:0> a = a - ['1']
+=> ["a", 1, {:key=>"value"}, ["a", "b"], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 1, 2,
+3, 4, 5, 6, 7, 8, 9, 10]
+irb(main):057:0> a = a - [1]
+=> ["a", {:key=>"value"}, ["a", "b"], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2, 3, 4,
+5, 6, 7, 8, 9, 10]
+irb(main):058:0> a = nil
+=> nil
+irb(main):059:0> a = %w{ hola curso rails gap}
+=> ["hola", "curso", "rails", "gap"]
+irb(main):060:0> a = %w{hola curso rails gap}
+=> ["hola", "curso", "rails", "gap"]
+irb(main):061:0> a = %w{hola  curso rails gap}
+=> ["hola", "curso", "rails", "gap"]
+irb(main):062:0> a = %w{hola   curso rails gap}
+=> ["hola", "curso", "rails", "gap"]
+irb(main):063:0> a[0] = "CR"
+=> "CR"
+irb(main):064:0> a
+=> ["CR", "curso", "rails", "gap"]
+irb(main):065:0> a[4] = "CR"
+=> "CR"
+irb(main):066:0> a
+=> ["CR", "curso", "rails", "gap", "CR"]
+irb(main):067:0> a[7] = "CR"
+=> "CR"
+irb(main):068:0> a
+=> ["CR", "curso", "rails", "gap", "CR", nil, nil, "CR"]
+irb(main):069:0> a[-1] = "CR2"
+=> "CR2"
+irb(main):070:0> a
+=> ["CR", "curso", "rails", "gap", "CR", nil, nil, "CR2"]
+irb(main):071:0> a[-2] = "CR2"
+=> "CR2"
+irb(main):072:0> a
+=> ["CR", "curso", "rails", "gap", "CR", nil, "CR2", "CR2"]
+irb(main):073:0> a[-8] = "CR2"
+=> "CR2"
+irb(main):074:0> a
+=> ["CR2", "curso", "rails", "gap", "CR", nil, "CR2", "CR2"]
+irb(main):075:0> a[-9] = "CR3"
+IndexError: index -9 too small for array; minimum: -8
+        from (irb):75:in `[]='
+        from (irb):75
+        from C:/Ruby192/bin/irb:12:in `<main>'
+irb(main):076:0> a.delete_at 3
+=> "gap"
+irb(main):077:0> a
+=> ["CR2", "curso", "rails", "CR", nil, "CR2", "CR2"]
+irb(main):078:0> a.delete_at 3,5,6
+ArgumentError: wrong number of arguments(3 for 1)
+        from (irb):78:in `delete_at'
+        from (irb):78
+        from C:/Ruby192/bin/irb:12:in `<main>'
+irb(main):079:0> a.delete_if{|x|x=="CR2"}
+=> ["curso", "rails", "CR", nil]
+irb(main):080:0> a.inspect
+=> "[\"curso\", \"rails\", \"CR\", nil]"
+irb(main):081:0> a.join '-=-=-=-=-='
+=> "curso-=-=-=-=-=rails-=-=-=-=-=CR-=-=-=-=-="
+irb(main):082:0> a.each_with_index do |val,i| puts "#{i}: #{val}" end
+0: curso
+1: rails
+2: CR
+3:
+=> ["curso", "rails", "CR", nil]
+irb(main):083:0> quit
+irb(main):001:0> "ruby es un lenguaje complejo ruby".match /ruby/
+=> #<MatchData "ruby">
+irb(main):002:0> "ruby es un lenguaje complejo ruby".match(/ruby/)
+=> #<MatchData "ruby">
+irb(main):003:0> "ruby es un lenguaje complejo ruby".match(/r.*/)
+=> #<MatchData "ruby es un lenguaje complejo ruby">
+irb(main):004:0> "ruby es un lenguaje complejo ruby".match(/r.*y/)
+=> #<MatchData "ruby es un lenguaje complejo ruby">
+irb(main):005:0> "ruby es un lenguaje complejo ruby".match(/r.*y e/)
+=> #<MatchData "ruby e">
+irb(main):006:0> "ruby es un lenguaje complejo ruby" =~ (/r.*y/)
+=> 0
+irb(main):007:0> "ruby es un lenguaje complejo ruby" =~ (/es/)
+=> 5
+irb(main):008:0> quit
