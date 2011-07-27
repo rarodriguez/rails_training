@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  address: MyText
+  capacity: 1
+  byod: false
+  price: 1.5
+
+two:
+  address: MyText
+  capacity: 1
+  byod: false
+  price: 1.5

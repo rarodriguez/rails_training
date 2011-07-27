@@ -13,8 +13,8 @@
 
 <% @snacks.each do |snack| %>
   <tr>
-    <td><%= snack.name %></td>
-    <td><%= snack.price %></td>
+    <td style='color:#567890'><%= snack.name %></td>
+    <td style='background-color:#567890'><%= snack.price %></td>
     <td><%= snack.size %></td>
     <td><%= snack.ingredients %></td>
     <td><%= link_to 'Show', snack %></td>

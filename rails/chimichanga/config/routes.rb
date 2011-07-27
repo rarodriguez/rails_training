@@ -1,4 +1,6 @@
 Chimichanga::Application.routes.draw do
+  resources :parties
+
   resources :snacks
 
   # The priority is based upon order of creation:

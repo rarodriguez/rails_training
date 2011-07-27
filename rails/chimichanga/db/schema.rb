@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110721232343) do
+ActiveRecord::Schema.define(:version => 20110726225517) do
+
+  create_table "parties", :force => true do |t|
+    t.text     "address"
+    t.integer  "capacity"
+    t.boolean  "byod"
+    t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "topic"
+  end
 
   create_table "snacks", :force => true do |t|
     t.string   "name"
