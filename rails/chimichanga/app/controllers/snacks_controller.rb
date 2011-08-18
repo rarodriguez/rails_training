@@ -40,17 +40,20 @@ class SnacksController < ApplicationController
   # POST /snacks
   # POST /snacks.xml
   def create
+    Rails.logger.error "---- #{params.inspect}"
     @snack = Snack.new(params[:snack])
-
-    respond_to do |format|
-      if @snack.save
-        format.html { redirect_to(@snack, :notice => 'Snack was successfully created.') }
-        format.xml  { render :xml => @snack, :status => :created, :location => @snack }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @snack.errors, :status => :unprocessable_entity }
-      end
-    end
+    puts "---- #{@snack.inspect}"
+	
+	respond_to do |format|
+	  if @snack.save
+		puts "---- #{@snack.inspect}"
+		format.html { redirect_to(@snack, :notice => 'Snack was successfully created.') }
+		format.xml  { render :xml => @snack, :status => :created, :location => @snack }
+	  else
+		format.html { render :action => "new" }
+		format.xml  { render :xml => @snack.errors, :status => :unprocessable_entity }
+	  end
+	end
   end
 
   # PUT /snacks/1
